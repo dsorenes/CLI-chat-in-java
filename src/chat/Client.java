@@ -16,24 +16,25 @@ public class Client {
 
        this.hostname = hostname;
        this.port = port;
-       try {
-           this.client = new Socket(this.hostname, this.port);
-           PrintWriter output = new PrintWriter(client.getOutputStream(), true);
-           BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()));
-           BufferedReader stdInput = new BufferedReader(new InputStreamReader(System.in));
+        try (
+            Socket client = new Socket(this.hostname, this.port);
+            PrintWriter output = new PrintWriter(client.getOutputStream(), true);
+            BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()))
+        ){
+            BufferedReader stdInput = new BufferedReader(new InputStreamReader(System.in));
 
-           String message;
+            String message;
 
-           while ((message = stdInput.readLine()) != null) {
-               //this sends the client input to the server
-               output.println(message);
+            while ((message = stdInput.readLine()) != null) {
+                //this sends the client input to the server
+                output.println(message);
 
-               //this prints out what we get from the server to the client locally
-               System.out.println(input.readLine());
-           }
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
+                //this prints out what we get from the server to the client locally
+                System.out.println(input.readLine());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main (String[] args) {

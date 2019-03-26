@@ -15,9 +15,11 @@ public class Server {
     public Server(int port) {
        this.port = port;
 
-       try {
+       try (
+           var server = new ServerSocket(this.port)
+       ){
 
-           this.server = new ServerSocket(port);
+           this.server = server;
            System.out.println("Server is running...");
            Socket client = server.accept();
            PrintWriter output = new PrintWriter(client.getOutputStream(), true);
