@@ -10,8 +10,10 @@ Make a multi-user chat application in java.
 
 TODO (in this order):
 1. Make the server handle several clients *DONE*
-2. Have the clients speak to the server synchronously
-3. Make the server respond to each individual client synchronously
+2. Make server handle connections and disconnections properly *DONE*
+3. Have the clients speak to the server synchronously *DONE*
+4. Make the server respond to each individual client synchronously *DONE BUT NEEDS IMPROVEMENT*
+5. Fix the issues with communication
 
 
 What I'll learn:
