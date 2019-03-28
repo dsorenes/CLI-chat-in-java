@@ -3,6 +3,7 @@ Has basic chat functionality
 
 As of 26.03.2019 01:56 it is just a simple echo server
 As of 28.03.2019 04:09 it handles multiple clients. It also keeps track of currently connected and disconnected sockets.
+As of 28.03.2019 04:56 the clients can now communicate with eachother over the server, but it's wonky as hell. This needs to be fixed. Currently no idea how..
 
 
 Goal:
