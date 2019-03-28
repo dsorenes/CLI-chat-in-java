@@ -31,27 +31,20 @@ public class Server {
             while (true) {
                 ClientHandler client = new ClientHandler(this.server.accept());
                 new Thread(client).start();
-                synchronized (clients) {
+
+                 synchronized (clients) {
                     clients.add(client);
-                    System.out.println("Clients connected " + clients.size());
                 }
 
                 for (ClientHandler c : clients) {
                     if (c.isConnected() == false) disconnected.add(c);
-
                 }
 
-                synchronized (clients) {
+                 synchronized (clients) {
                     clients.removeAll(disconnected);
                     disconnected.clear();
                 }
 
-                System.out.println("before " + disconnected.size());
-
-
-
-
-                System.out.println("after " + disconnected.size());
                 System.out.println("Clients connected " + clients.size());
 
                 broadcaster = new MessageBroadcaster(this.clients);
