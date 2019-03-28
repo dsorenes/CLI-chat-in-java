@@ -37,7 +37,7 @@ public class Server {
                 }
 
                 for (ClientHandler c : clients) {
-                    if (c.isConnected() == false) disconnected.add(c);
+                    if (!c.isConnected()) disconnected.add(c);
                 }
 
                  synchronized (clients) {
