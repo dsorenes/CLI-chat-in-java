@@ -13,12 +13,11 @@ public class ClientHandler implements Runnable {
     private PrintWriter clientOutput;
     private BufferedReader clientInput;
     private boolean isConnected;
+
     public ClientHandler (Socket client) {
         this.client = client;
         this.isConnected = client.isConnected();
-
     }
-
 
     @Override
     public void run() {
@@ -32,8 +31,8 @@ public class ClientHandler implements Runnable {
             String message;
 
             while ((message = this.clientInput.readLine()) != null) {
-                //MessageBroadcaster.broadcast(this);
-                output.println(message);
+                MessageBroadcaster.getInstance().broadcast(this, message);
+                //output.println(message);
                 //System.out.println(input.readLine());
             }
         } catch (IOException e) {

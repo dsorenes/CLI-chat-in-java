@@ -43,8 +43,8 @@ public class Client {
             //display the username before the cursor in the client's chat
             System.out.print(handle);
 
-            String message = stdInput.readLine();
-            while (message.compareTo("/quit") != 0) {
+            String message;
+            while ((message = stdInput.readLine()) != null) {
                 //this sends the client input to the server
                 output.println(handle + message);
 
@@ -53,9 +53,6 @@ public class Client {
 
                 //re-display the username handle for the client's chat
                 System.out.print(handle);
-
-                //make the next user input the new message
-                message = stdInput.readLine();
 
                 //this prints out what we get from the server to the client locally
             }

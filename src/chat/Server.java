@@ -43,11 +43,12 @@ public class Server {
                  synchronized (clients) {
                     clients.removeAll(disconnected);
                     disconnected.clear();
+                    broadcaster = MessageBroadcaster.getInstance();
+                    broadcaster.connectedClients(this.clients);
                 }
 
                 System.out.println("Clients connected " + clients.size());
 
-                broadcaster = new MessageBroadcaster(this.clients);
 
             }
         } catch (IOException e) {
