@@ -2,6 +2,8 @@
 Has basic chat functionality
 
 As of 26.03.2019 01:56 it is just a simple echo server
+As of 28.03.2019 04:09 it handles multiple clients. It also keeps track of currently connected and disconnected sockets.
+
 
 Goal:
 Make a multi-user chat application in java.
