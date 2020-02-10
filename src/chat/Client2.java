@@ -8,19 +8,19 @@ import java.net.Socket;
 import java.util.Arrays;
 import java.util.List;
 
-public class Client {
+public class Client2 {
 
-   private String hostname;
-   private int port;
+    private String hostname;
+    private int port;
 
-    Client(String hostname, int port) {
-       this.hostname = hostname;
-       this.port = port;
+    public Client2(String hostname, int port) {
+        this.hostname = hostname;
+        this.port = port;
 
         try (
-            Socket client = new Socket(this.hostname, this.port);
-            PrintWriter output = new PrintWriter(client.getOutputStream(), true);
-            BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()))
+                Socket client = new Socket(this.hostname, this.port);
+                PrintWriter output = new PrintWriter(client.getOutputStream(), true);
+                BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()))
         ){
             BufferedReader stdInput = new BufferedReader(new InputStreamReader(System.in));
 
@@ -28,6 +28,7 @@ public class Client {
             System.out.println("Welcome! Please input a URL: ");
 
             while ((message = stdInput.readLine()) != null) {
+                //this sends the client input to the server
                 output.println(message);
 
                 String response = input.readLine();
@@ -52,7 +53,6 @@ public class Client {
     }
 
     public static void main (String[] args) {
-        //find local ip address: ifconfig | grep inet
-        new Client("10.253.30.76", 59000);
+        new Client("localhost", 59000);
     }
 }
