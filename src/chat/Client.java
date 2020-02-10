@@ -52,7 +52,7 @@ public class Client {
     }
 
     public static void main (String[] args) {
-        //find local ip address: ifconfig | grep inet
-        new Client("10.253.30.76", 59000);
+        //find local ip address for eduroam: ifconfig | grep inet
+        new Client("localhost", 59000);
     }
 }
