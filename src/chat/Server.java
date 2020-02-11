@@ -27,7 +27,7 @@ public class Server {
                PrintWriter output = new PrintWriter(client.getOutputStream(), true);
                BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()));
 
-               ClientHandler handler = new ClientHandler(input, output);
+               ClientHandler handler = new ClientHandler(client, input, output);
 
                new Thread(handler).start();
 
